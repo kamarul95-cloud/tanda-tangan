@@ -104,7 +104,7 @@
       .then(result => {
         if (result.success) {
           document.getElementById('signature_url').value = result.data.url;
-          document.getElementById('upload-status').textContent = 'Tandatangan berjaya dimuat naik.';
+          document.getElementById('upload-status').textContent = 'Tandatangan berjaya dimuat naik. Sila salin URL yang diberi ke Google Form';
         } else {
           document.getElementById('upload-status').textContent = 'Gagal muat naik tandatangan.';
         }

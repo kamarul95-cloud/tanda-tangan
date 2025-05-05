@@ -9,12 +9,14 @@
     body {
       margin: 0;
       padding: 20px;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center; /* Tengah-tengah secara menegak */
       font-family: sans-serif;
       background-color: #f8f8f8;
+      box-sizing: border-box;
     }
 
     #signature-pad {
@@ -50,12 +52,20 @@
       color: green;
       margin-top: 5px;
     }
+
+    .instruction {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
+  
 
   <h2>Pad Tandatangan</h2>
   <canvas id="signature-pad" width="400" height="150"></canvas><br>
+  
+  <div class="instruction">Sila guna jari telunjuk <span style="font-size: 18px;">👆</span></div>
 
   <button class="btn" onclick="clearSignature()">Kosongkan</button>
   <button class="btn" onclick="uploadSignature()">Muat Naik Tandatangan</button><br><br>
@@ -82,7 +92,6 @@
         return;
       }
 
-      // Resize to 344x110 px (≈ 2.91 cm x 0.93 cm @ 300 DPI)
       const tempCanvas = document.createElement('canvas');
       tempCanvas.width = 344;
       tempCanvas.height = 110;
@@ -104,7 +113,7 @@
       .then(result => {
         if (result.success) {
           document.getElementById('signature_url').value = result.data.url;
-          document.getElementById('upload-status').textContent = 'Tandatangan berjaya dimuat naik. Sila salin URL yang diberi ke Google Form';
+          document.getElementById('upload-status').textContent = 'Tandatangan berjaya dimuat naik.';
         } else {
           document.getElementById('upload-status').textContent = 'Gagal muat naik tandatangan.';
         }

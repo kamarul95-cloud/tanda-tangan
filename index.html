@@ -60,12 +60,11 @@
   </style>
 </head>
 <body>
-  
+
+  <div class="instruction">Sila guna jari telunjuk <span style="font-size: 18px;">👆</span></div>
 
   <h2>Pad Tandatangan</h2>
   <canvas id="signature-pad" width="400" height="150"></canvas><br>
-  
-  <div class="instruction">Sila guna jari telunjuk <span style="font-size: 18px;">👆</span></div>
 
   <button class="btn" onclick="clearSignature()">Kosongkan</button>
   <button class="btn" onclick="uploadSignature()">Muat Naik Tandatangan</button><br><br>
@@ -113,7 +112,7 @@
       .then(result => {
         if (result.success) {
           document.getElementById('signature_url').value = result.data.url;
-          document.getElementById('upload-status').textContent = 'Tandatangan berjaya dimuat naik.';
+          document.getElementById('upload-status').textContent = 'Tandatangan berjaya dimuat naik. Sila salin dan tampal ke Google Form';
         } else {
           document.getElementById('upload-status').textContent = 'Gagal muat naik tandatangan.';
         }
